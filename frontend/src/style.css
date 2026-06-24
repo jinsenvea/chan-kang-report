@@ -1,0 +1,17 @@
+/* 全局CSS — 替换为商务蓝主题 */
+:root {
+  --younger-primary: #1677FF;
+  --younger-primary-dark: #0F58C9;
+  --younger-primary-light: #E6F4FF;
+  --younger-bg: #F5F7FA;
+  --younger-sidebar-width: 220px;
+  --younger-sidebar-collapsed-width: 64px;
+  --younger-navbar-height: 50px;
+  --younger-text: #333;
+  --younger-text-secondary: #909399;
+  --younger-border: #EBEEF5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #app { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+a { text-decoration: none; }
