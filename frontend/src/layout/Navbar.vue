@@ -5,6 +5,7 @@
         <Fold v-if="!appStore.sidebarCollapsed" />
         <Expand v-else />
       </el-icon>
+      <el-tag v-if="isDemo" type="success" size="small" effect="dark" class="demo-tag">🎮 演示</el-tag>
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item v-if="route.meta.title">{{ route.meta.title as string }}</el-breadcrumb-item>
@@ -26,14 +27,17 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAppStore } from '@/stores/app'
 import { useUserStore } from '@/stores/user'
+import { isDemoMode } from '@/utils/auth'
 
 const route = useRoute()
 const router = useRouter()
 const appStore = useAppStore()
 const userStore = useUserStore()
+const isDemo = computed(isDemoMode)
 
 const handleLogout = () => {
   userStore.logout()
@@ -72,4 +76,6 @@ const handleLogout = () => {
   color: var(--younger-text);
   font-size: 14px;
 }
+
+.demo-tag { margin-right: 4px; }
 </style>

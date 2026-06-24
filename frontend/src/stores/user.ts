@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { getToken, setToken, removeToken, getUser, setUser, removeUser } from '@/utils/auth'
+import { getToken, setToken, removeToken, getUser, setUser, removeUser, setDemoMode } from '@/utils/auth'
 import request from '@/utils/request'
 
 export const useUserStore = defineStore('user', () => {
@@ -18,13 +18,22 @@ export const useUserStore = defineStore('user', () => {
     return res
   }
 
+  const demoLogin = () => {
+    token.value = 'demo-token-2026'
+    username.value = 'demo'
+    realName.value = '演示账号'
+    setToken('demo-token-2026')
+    setUser({ username: 'demo', realName: '演示账号' })
+  }
+
   const logout = () => {
     token.value = ''
     username.value = ''
     realName.value = ''
     removeToken()
     removeUser()
+    setDemoMode(false)
   }
 
-  return { token, username, realName, login, logout }
+  return { token, username, realName, login, logout, demoLogin }
 })
