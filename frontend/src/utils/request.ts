@@ -24,6 +24,9 @@ request.interceptors.response.use(
       removeToken()
       router.push('/login')
       ElMessage.error('登录已过期，请重新登录')
+    } else if (!error.response) {
+      // 网络错误（后端未启动 / 无后端服务）
+      ElMessage.warning('后端服务未连接，当前为静态预览模式')
     } else {
       const msg = error.response?.data?.detail || error.message || '请求失败'
       ElMessage.error(msg)

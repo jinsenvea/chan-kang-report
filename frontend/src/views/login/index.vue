@@ -17,6 +17,10 @@
       </div>
       <div class="login-form-wrap">
         <div class="login-form-box">
+          <div class="demo-badge">
+            <el-tag type="warning" size="small" effect="dark">静 态 预 览</el-tag>
+            <p class="demo-tip">此为前端界面展示，登录需后端服务支持</p>
+          </div>
           <h3 class="form-title">系统登录</h3>
           <el-form ref="formRef" :model="form" :rules="rules" @keyup.enter="handleLogin">
             <el-form-item prop="username">
@@ -108,6 +112,9 @@ const handleLogin = async () => {
 
 .login-form-box { width: 340px; }
 .form-title { font-size: 24px; font-weight: 700; color: #333; margin-bottom: 32px; text-align: center; }
+
+.demo-badge { text-align: center; margin-bottom: 16px; }
+.demo-badge .demo-tip { font-size: 12px; color: #999; margin-top: 6px; }
 
 .login-btn { width: 100%; height: 44px; font-size: 16px; background: #1677FF; border-color: #1677FF; }
 
